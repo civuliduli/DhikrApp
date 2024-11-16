@@ -18,9 +18,20 @@ extension UIImage {
     
     // Tasbih Icons
     static var tasbihIcon: UIImage = UIImage(systemName: "arrow.trianglehead.counterclockwise")!
-//    static var tasbihIconFilled: UIImage = UIImage(systemName: "bookmark.fill")!
     
     // Settings Icons
     static var settingsIcon: UIImage = UIImage(systemName: "gearshape")!
     static var settingsIconFilled: UIImage = UIImage(systemName: "gearshape.fill")!
+    
+    // Like icon
+    static var heartIcon: UIImage = UIImage(systemName: "heart")!
+    static var heartIconFilled: UIImage = UIImage(systemName: "heart.fill")!
+    
+    // Bookmark icon
+    
+    static var bookmarkIcon: UIImage = UIImage(systemName: "bookmark")!
+    static var bookmarkIconFilled: UIImage = UIImage(systemName: "bookmark.fill")!
+    
+    // Refresh icon
+    static var refreshIcon: UIImage = UIImage(systemName: "arrow.clockwise")!
 }
