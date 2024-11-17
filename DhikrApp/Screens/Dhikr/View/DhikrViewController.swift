@@ -9,11 +9,15 @@ import UIKit
 
 class DhikrViewController: UIViewController {
     
+    // TODO: take the json file and decode it with json decoder
+    // TODO: Show the dhikr title and time to the new table view
+    // Make the view controller with sections one section will contain the streak and profile name and the other will contain the table view with dhikrs
+    
     private(set) weak var dhikrCoordinator: DhikrCoordinator?
     
     init(dhikrCoordinator: DhikrCoordinator?) {
-        self.dhikrCoordinator = dhikrCoordinator
         super.init(nibName: nil, bundle: nil)
+        self.dhikrCoordinator = dhikrCoordinator
     }
     
     required init?(coder: NSCoder) {
@@ -24,9 +28,6 @@ class DhikrViewController: UIViewController {
         super.viewDidLoad()
         print("Hello from Duliii")
         view.backgroundColor = .blue
-        // Do any additional setup after loading the view.
     }
-
-
 }
 

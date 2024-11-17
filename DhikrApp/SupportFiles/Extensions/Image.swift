@@ -29,8 +29,7 @@ extension UIImage {
     
     // Bookmark icon
     
-    static var bookmarkIcon: UIImage = UIImage(systemName: "bookmark")!
-    static var bookmarkIconFilled: UIImage = UIImage(systemName: "bookmark.fill")!
+    static var streakBookIcon: UIImage = UIImage(systemName: "book.fill")!
     
     // Refresh icon
     static var refreshIcon: UIImage = UIImage(systemName: "arrow.clockwise")!
