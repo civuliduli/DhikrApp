@@ -35,7 +35,12 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate  {
         bookmarkCoordinator.start()
         tasbihCoordinator.start()
         settingsCoordinator.start()
-        self.viewControllers = [dhikrCoordinator.navigationController, bookmarkCoordinator.navigationController, tasbihCoordinator.navigationController, settingsCoordinator.navigationController]
+        self.viewControllers = [
+               dhikrCoordinator.navigationController.topViewController!,
+               bookmarkCoordinator.navigationController.topViewController!,
+               tasbihCoordinator.navigationController.topViewController!,
+               settingsCoordinator.navigationController.topViewController!
+           ]
     }
     
     func tabBarIconDesign() {

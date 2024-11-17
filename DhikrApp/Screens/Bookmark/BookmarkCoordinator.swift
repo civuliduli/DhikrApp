@@ -20,6 +20,8 @@ class BookmarkCoordinator: Coordinator {
         viewController.tabBarItem.title = "Bookmark"
         viewController.tabBarItem.image = .bookMarkIcon
         viewController.tabBarItem.selectedImage = .bookMarkIconFilled
+        // Hide the navigation bar for the current view
+        viewController.navigationController?.setNavigationBarHidden(true, animated: false)
         navigationController.pushViewController(viewController, animated: true)
     }
 }

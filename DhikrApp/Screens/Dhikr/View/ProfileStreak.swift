@@ -46,7 +46,7 @@ class ProfileStreak: UIView {
     
     func setup() {
         addSubview(stackView)
-        stackView.anchor(top: topAnchor, left: leftAnchor, right: rightAnchor, topConstant: 85, leftConstant: 24, rightConstant: 24)
+        stackView.anchor(left: leftAnchor, right: rightAnchor, leftConstant: 24, rightConstant: 24)
     }
 }
 
