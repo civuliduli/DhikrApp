@@ -16,12 +16,7 @@ class BookmarkCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = BookmarkViewController(bookmarkCoordinator: self)
-        viewController.tabBarItem.title = "Bookmark"
-        viewController.tabBarItem.image = .bookMarkIcon
-        viewController.tabBarItem.selectedImage = .bookMarkIconFilled
-        // Hide the navigation bar for the current view
-        viewController.navigationController?.setNavigationBarHidden(true, animated: false)
+        let viewController = BookmarkViewController()
         navigationController.pushViewController(viewController, animated: true)
     }
 }

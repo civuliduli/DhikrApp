@@ -15,15 +15,11 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate  {
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    lazy var dhikrCoordinator: DhikrCoordinator = DhikrCoordinator(navigationController: UINavigationController.init())
-    lazy var bookmarkCoordinator: BookmarkCoordinator = BookmarkCoordinator(navigationController: UINavigationController.init())
-    lazy var tasbihCoordinator: TasbihCoordinator = TasbihCoordinator(navigationController: UINavigationController.init())
-    lazy var settingsCoordinator: SettingsCoordinator = SettingsCoordinator(navigationController: UINavigationController.init())
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarIconDesign()
@@ -31,16 +27,24 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate  {
     }
     
     func configureTabBarViewControllers() {
-        dhikrCoordinator.start()
-        bookmarkCoordinator.start()
-        tasbihCoordinator.start()
-        settingsCoordinator.start()
-        self.viewControllers = [
-               dhikrCoordinator.navigationController.topViewController!,
-               bookmarkCoordinator.navigationController.topViewController!,
-               tasbihCoordinator.navigationController.topViewController!,
-               settingsCoordinator.navigationController.topViewController!
-           ]
+        let selectDhikrVC = SelectDhikrViewController()
+        let bookMarkVC = BookmarkViewController()
+        let tasbihVC = TasbihViewController()
+        let settingsVC = SettingsViewController()
+        
+        let selectDhikrBarItem = UITabBarItem(title: "Home", image: .homeIcon, selectedImage: .homeIconFilled)
+        selectDhikrVC.tabBarItem = selectDhikrBarItem
+        
+        let bookMarkBarItem = UITabBarItem(title: "Bookmark", image: .bookMarkIcon, selectedImage: .bookMarkIconFilled)
+        bookMarkVC.tabBarItem = bookMarkBarItem
+        
+        let tasbihBarItem = UITabBarItem(title: "Tasbih", image: .tasbihIcon, selectedImage: .tasbihIcon)
+        tasbihVC.tabBarItem = tasbihBarItem
+        
+        let settingsBarItem = UITabBarItem(title: "Settings", image: .settingsIcon, selectedImage: .settingsIconFilled)
+        settingsVC.tabBarItem = settingsBarItem
+
+        self.viewControllers = [selectDhikrVC, bookMarkVC, tasbihVC, settingsVC]
     }
     
     func tabBarIconDesign() {

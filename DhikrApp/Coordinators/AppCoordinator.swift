@@ -20,4 +20,9 @@ class AppCoordinator: Coordinator {
         let viewController = TabBarViewController(coordinator: self)
         navigationController.pushViewController(viewController, animated: true)
     }
+    
+    func test() {
+        let viewController = DhikrViewController()
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }

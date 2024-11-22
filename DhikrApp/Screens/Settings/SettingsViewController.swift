@@ -8,11 +8,8 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    
-    private(set) weak var settingsCoordinator: SettingsCoordinator?
-    
-    init(settingsCoordinator: SettingsCoordinator?) {
-        self.settingsCoordinator = settingsCoordinator
+        
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     
