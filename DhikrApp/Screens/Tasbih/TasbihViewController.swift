@@ -8,11 +8,8 @@
 import UIKit
 
 class TasbihViewController: UIViewController {
-    
-    private(set) weak var tasbihCoordinator: TasbihCoordinator?
-    
-    init(tasbihCoordinator: TasbihCoordinator?) {
-        self.tasbihCoordinator = tasbihCoordinator
+        
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     

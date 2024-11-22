@@ -16,10 +16,7 @@ class SettingsCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = SettingsViewController(settingsCoordinator: self)
-        viewController.tabBarItem.title = "Settings"
-        viewController.tabBarItem.image = .settingsIcon
-        viewController.tabBarItem.selectedImage = .settingsIconFilled
+        let viewController = SettingsViewController()
         navigationController.pushViewController(viewController, animated: true)
     }
 }

@@ -16,10 +16,7 @@ class TasbihCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = TasbihViewController(tasbihCoordinator: self)
-        viewController.tabBarItem.title = "Tasbih"
-        viewController.tabBarItem.image = .tasbihIcon
-        viewController.tabBarItem.selectedImage = .tasbihIcon
+        let viewController = TasbihViewController()
         navigationController.pushViewController(viewController, animated: true)
     }
 }

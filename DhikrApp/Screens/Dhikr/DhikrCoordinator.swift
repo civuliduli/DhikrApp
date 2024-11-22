@@ -16,10 +16,12 @@ class DhikrCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = DhikrViewController(dhikrCoordinator: self)
-        viewController.tabBarItem.title = "Home"
-        viewController.tabBarItem.image = .homeIcon
-        viewController.tabBarItem.selectedImage = .homeIconFilled
+        let viewController = SelectDhikrViewController()
+        navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func goToDhikr() {
+        let viewController = DhikrViewController()
         navigationController.pushViewController(viewController, animated: true)
     }
 }

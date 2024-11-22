@@ -8,11 +8,8 @@
 import UIKit
 
 class BookmarkViewController: UIViewController {
-    
-    private(set) weak var bookmarkCoordinator: BookmarkCoordinator?
-    
-    init(bookmarkCoordinator: BookmarkCoordinator?) {
-        self.bookmarkCoordinator = bookmarkCoordinator
+        
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     
