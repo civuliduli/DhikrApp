@@ -38,4 +38,6 @@ extension UIImage {
     
     // Time icon
     static var timeIcon: UIImage = UIImage(systemName: "clock.arrow.trianglehead.counterclockwise.rotate.90")!
+    
+    static var checkMarkIcon: UIImage = UIImage(systemName: "checkmark")!
 }

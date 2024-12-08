@@ -10,13 +10,25 @@ import UIKit
 class DhikrCardTableViewCell: UITableViewCell {
     
     static let cellIdentifier: String = "DhikrCardTableViewCell"
-
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupDhikrCardView()
+        backgroundColor = .white
+        selectionStyle = .none
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     lazy var refreshButton: UIButton = {
         let button = UIButton()
         button.setImage(.refreshIcon, for: .normal)
         button.backgroundColor = .gray
         button.layer.cornerRadius = 10
+        button.add(width: 44, height: 44)
+        button.isHidden = true
         return button
     }()
     
@@ -43,34 +55,41 @@ class DhikrCardTableViewCell: UITableViewCell {
     
     lazy var arabicText: UILabel = {
         let label = UILabel()
-        label.font = CommonUtils.shared.getArabicFont(size: 18)
+        label.font = CommonUtils.shared.getArabicFont(size: 16)
         label.text = "اللَّهُمَّ أَنْتَ السَّلَامُ، وَمِنْكَ السَّلَامُ، تَبَارَكْتَ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ."
         label.textAlignment = .right
+        label.textColor = .black
         label.numberOfLines = 0
         return label
     }()
     
     lazy var transliterationText: UILabel = {
         let label = UILabel()
-        label.font = CommonUtils.shared.getBoldFont18(size: 17)
+        label.font = CommonUtils.shared.getBoldFont18(size: 15)
         label.text = "All-llãhumme Entes-Selãm, we minkes-selãm, tebãrakte jã dhel xhelãli wel ikrãm."
+        label.textColor = .black
         label.numberOfLines = 0
+        label.textAlignment = .left
         return label
     }()
     
     let translationText: UILabel = {
         let label = UILabel()
-        label.font = CommonUtils.shared.getLightFont18(size: 20)
+        label.font = CommonUtils.shared.getLightFont18(size: 18)
         label.text = "O Allah! Ti je Paqedhënësi dhe vetëm prej Teje pres paqen! Ti je përgjithmonë i Begatshëm, o Zotëruesi i madhështisë dhe nderimit!"
+        label.textColor = .black
         label.numberOfLines = 0
+        label.textAlignment = .left
         return label
     }()
     
     let hadithInfoText: UILabel = {
         let label = UILabel()
-        label.font = CommonUtils.shared.getLightFont18(size: 12)
+        label.font = CommonUtils.shared.getLightFont18(size: 10)
         label.text = "Muslimi"
         label.numberOfLines = 0
+        label.textColor = .black
+        label.textAlignment = .left
         return label
     }()
     
@@ -85,9 +104,23 @@ class DhikrCardTableViewCell: UITableViewCell {
     }()
     
     lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [iconsStackView, arabicText, dhikrStackView])
+        let stackView = UIStackView(arrangedSubviews: [contentStackView, dhikrStackView, countDhikrStackView])
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        stackView.layer.borderColor = UIColor.gray.cgColor
+        stackView.layer.cornerRadius = 16
+        stackView.layer.borderWidth = 1
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+        stackView.spacing = 10
+        stackView.distribution = .fill
+        return stackView
+    }()
+    
+    lazy var contentStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [iconsStackView, arabicText])
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.spacing = 10
         stackView.alignment = .trailing
         return stackView
     }()
@@ -97,14 +130,16 @@ class DhikrCardTableViewCell: UITableViewCell {
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         stackView.alignment = .trailing
+        stackView.spacing = 5
         return stackView
     }()
     
     lazy var dhikrStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [transliterationText, translationText, hadithInfoText])
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fill
         stackView.alignment = .leading
+        stackView.spacing = 10
         return stackView
     }()
     
@@ -116,25 +151,26 @@ class DhikrCardTableViewCell: UITableViewCell {
         return stackView
     }()
     
+    func configureDhikrCard(dhikr: DhikrItems) {
+        arabicText.text = dhikr.arabicText
+        transliterationText.text = dhikr.transliteration
+        translationText.text = dhikr.dhikrData.dhikr_Sq
+        hadithInfoText.text = dhikr.dhikrInfo.hadithInfo_Sq
+        countDhikrButton.setTitle(" 0 / \(dhikr.count)", for: .normal)
+    }
     
     func setupDhikrCardView() {
         contentView.addSubview(mainStackView)
-        contentView.addSubview(countDhikrStackView)
-        mainStackView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, right: contentView.rightAnchor, topConstant: 24, leftConstant: 8, rightConstant: 16)
-        countDhikrStackView.anchor(top: mainStackView.bottomAnchor, left: contentView.leftAnchor, right: contentView.rightAnchor, topConstant: 16, leftConstant: 8, rightConstant: 16)
-
-    }
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupDhikrCardView()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        mainStackView.anchor(top: contentView.topAnchor,
+                             left: contentView.leftAnchor,
+                             bottom: contentView.bottomAnchor,
+                             right: contentView.rightAnchor,
+                             topConstant: 24,
+                             leftConstant: 16,
+                             bottomConstant: 5,
+                             rightConstant: 16)
     }
 }
-
 
 #Preview {
     DhikrCardTableViewCell()
