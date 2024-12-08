@@ -21,6 +21,10 @@ extension SelectDhikrViewController: UITableViewDelegate, UITableViewDataSource 
             print("No data for selected row")
             return
         }
+        let dhikrVC = DhikrViewController()
+        dhikrVC.dhikr = selectedDhikr
+        navigationController?.pushViewController(dhikrVC, animated: true)
+        print(selectedDhikr)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

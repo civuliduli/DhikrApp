@@ -18,18 +18,11 @@ class DhikrTimeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    lazy var dhikrType: UILabel = {
-        let label = UILabel()
-        label.font = CommonUtils.shared.getBoldFont18(size: 24)
-        label.text = "Dhikri i Mengjesit"
-        label.numberOfLines = 0
-        return label
-    }()
-    
     lazy var timeToPerformDhikr: UILabel = {
         let label = UILabel()
         label.font = CommonUtils.shared.getLightFont18(size: 18)
         label.text = "Koha e dhikrit: Para lindjes se diellit"
+        label.textColor = .black
         label.numberOfLines = 0
         return label
     }()
@@ -42,12 +35,6 @@ class DhikrTimeView: UIView {
         return imageView
     }()
     
-//    lazy var genderRectangle: UIImageView = {
-//      let imageView = UIImageView(image: UIImage(named: "greenRectangle"))
-//      imageView.anchor(widthConstant: 20, heightConstant: 20)
-//      return imageView
-//    }()
-//    
     lazy var timeToPerformDhikrStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [timeIcon, timeToPerformDhikr])
         stackView.axis = .horizontal
@@ -58,10 +45,8 @@ class DhikrTimeView: UIView {
     
     
     func setupView() {
-        addSubview(dhikrType)
         addSubview(timeToPerformDhikrStackView)
-        dhikrType.anchor(left: leftAnchor, right: rightAnchor)
-        timeToPerformDhikrStackView.anchor(top: dhikrType.bottomAnchor, left: leftAnchor, right: rightAnchor, topConstant: 16)
+        timeToPerformDhikrStackView.anchor(left: leftAnchor, right: rightAnchor)
     }
     
 }
