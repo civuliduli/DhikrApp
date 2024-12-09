@@ -9,6 +9,8 @@ import UIKit
 
 class DhikrViewController: UIViewController {
     
+    //TODO: When dhikr is finished show a message for user
+    
     var dhikr: Dhikr?
     
     lazy var dhikrTimeView: DhikrTimeView = {

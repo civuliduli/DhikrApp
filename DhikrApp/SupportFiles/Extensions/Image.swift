@@ -40,4 +40,9 @@ extension UIImage {
     static var timeIcon: UIImage = UIImage(systemName: "clock.arrow.trianglehead.counterclockwise.rotate.90")!
     
     static var checkMarkIcon: UIImage = UIImage(systemName: "checkmark")!
+    static var moonIcon: UIImage = UIImage(systemName: "moon")!
+    static var sunIcon: UIImage = UIImage(systemName: "sun.max")!
+    static var cpuIcon: UIImage = UIImage(systemName: "cpu")!
+    
+    
 }
