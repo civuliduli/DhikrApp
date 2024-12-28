@@ -55,7 +55,7 @@ class ConfigureFontSizeViewController: UIViewController {
         view.titleLabel.text = "Quranic Script"
         view.textLabel.text = "اللَّهُمَّ أَنْتَ السَّلَامُ، وَمِنْكَ السَّلَامُ، تَبَارَكْتَ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ"
         view.selectTextSize.addTarget(self, action: #selector(changeArabicFontSize(_:)), for: .valueChanged)
-        view.textLabel.font = CommonUtils.shared.getLightFont18(size: CGFloat(UserPreferences.getArabicFontSize() ?? 0))
+        view.textLabel.font = CommonUtils.shared.getLightFont18(size: CGFloat(UserPreferences.getArabicFontSize() ?? 12))
         view.selectTextSize.value = UserPreferences.getArabicFontSize() ?? 0
         return view
     }()
@@ -65,7 +65,7 @@ class ConfigureFontSizeViewController: UIViewController {
         view.titleLabel.text = "Transliteration"
         view.textLabel.text = "All-llãhumme Entes-Selãm, we minkes-selãm, tebãrakte jã dhel xhelãli wel ikrãm"
         view.selectTextSize.addTarget(self, action: #selector(changeTransliterationFontSize(_:)), for: .valueChanged)
-        view.textLabel.font = CommonUtils.shared.getLightFont18(size: CGFloat(UserPreferences.getTransliterationFontSize() ?? 0))
+        view.textLabel.font = CommonUtils.shared.getLightFont18(size: CGFloat(UserPreferences.getTransliterationFontSize() ?? 12))
         view.selectTextSize.value = UserPreferences.getTransliterationFontSize() ?? 0
         return view
     }()
@@ -75,7 +75,7 @@ class ConfigureFontSizeViewController: UIViewController {
         view.titleLabel.text = "Translation"
         view.textLabel.text = "O Allah! Ti je Paqedhënësi dhe vetëm prej Teje pres paqen! Ti je përgjithmonë i Begatshëm, o Zotëruesi i madhështisë dhe nderimit!"
         view.selectTextSize.addTarget(self, action: #selector(changeTranslationFontSize(_:)), for: .valueChanged)
-        view.textLabel.font = CommonUtils.shared.getLightFont18(size: CGFloat(UserPreferences.getTranslationFontSize() ?? 0))
+        view.textLabel.font = CommonUtils.shared.getLightFont18(size: CGFloat(UserPreferences.getTranslationFontSize() ?? 12))
         view.selectTextSize.value = UserPreferences.getTranslationFontSize() ?? 0
         return view
     }()
@@ -106,21 +106,18 @@ class ConfigureFontSizeViewController: UIViewController {
     
     @objc func changeArabicFontSize(_ sender: UISlider) {
         arabicTextFontSize = Double(sender.value)
-        print("arabic font size \(arabicTextFontSize)")
         selectArabicTextSize.textLabel.font = CommonUtils.shared.getLightFont18(size: arabicTextFontSize)
         UserPreferences.setArabicFontSize(Float(arabicTextFontSize))
     }
     
     @objc func changeTransliterationFontSize(_ sender: UISlider) {
         transliterationTextFontSize = Double(sender.value)
-        print("arabic font size \(transliterationTextFontSize)")
         selectTransliterationTextSize.textLabel.font = CommonUtils.shared.getLightFont18(size: transliterationTextFontSize)
         UserPreferences.setTransliterationFontSize(Float(transliterationTextFontSize))
     }
     
     @objc func changeTranslationFontSize(_ sender: UISlider) {
         translationTextFontSize = Double(sender.value)
-        print("arabic font size \(translationTextFontSize)")
         selectTranslationTextSize.textLabel.font = CommonUtils.shared.getLightFont18(size: translationTextFontSize)
         UserPreferences.setTranslationFontSize(Float(translationTextFontSize))
     }

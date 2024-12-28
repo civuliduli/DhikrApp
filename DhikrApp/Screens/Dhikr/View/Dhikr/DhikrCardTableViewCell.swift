@@ -55,7 +55,7 @@ class DhikrCardTableViewCell: UITableViewCell {
     
     lazy var arabicText: UILabel = {
         let label = UILabel()
-        label.font = CommonUtils.shared.getArabicFont(size: CGFloat(UserPreferences.getArabicFontSize() ?? 0))
+        label.font = CommonUtils.shared.getArabicFont(size: CGFloat(UserPreferences.getArabicFontSize() ?? 12))
         label.text = "اللَّهُمَّ أَنْتَ السَّلَامُ، وَمِنْكَ السَّلَامُ، تَبَارَكْتَ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ."
         label.textAlignment = .right
         label.textColor = .black
@@ -65,7 +65,7 @@ class DhikrCardTableViewCell: UITableViewCell {
     
     lazy var transliterationText: UILabel = {
         let label = UILabel()
-        label.font = CommonUtils.shared.getBoldFont18(size: CGFloat(UserPreferences.getTransliterationFontSize() ?? 0))
+        label.font = CommonUtils.shared.getBoldFont18(size: CGFloat(UserPreferences.getTransliterationFontSize() ?? 12))
         label.text = "All-llãhumme Entes-Selãm, we minkes-selãm, tebãrakte jã dhel xhelãli wel ikrãm."
         label.textColor = .black
         label.numberOfLines = 0
@@ -75,7 +75,7 @@ class DhikrCardTableViewCell: UITableViewCell {
     
     let translationText: UILabel = {
         let label = UILabel()
-        label.font = CommonUtils.shared.getLightFont18(size: CGFloat(UserPreferences.getTranslationFontSize() ?? 0))
+        label.font = CommonUtils.shared.getLightFont18(size: CGFloat(UserPreferences.getTranslationFontSize() ?? 12))
         label.text = "O Allah! Ti je Paqedhënësi dhe vetëm prej Teje pres paqen! Ti je përgjithmonë i Begatshëm, o Zotëruesi i madhështisë dhe nderimit!"
         label.textColor = .black
         label.numberOfLines = 0
