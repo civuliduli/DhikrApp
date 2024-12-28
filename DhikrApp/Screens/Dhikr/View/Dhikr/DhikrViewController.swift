@@ -10,6 +10,7 @@ import UIKit
 class DhikrViewController: UIViewController {
     
     //TODO: When dhikr is finished show a message for user
+    //TODO: Make the Appearance task 
     
     var dhikr: Dhikr?
     

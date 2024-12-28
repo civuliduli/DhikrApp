@@ -7,23 +7,28 @@
 
 import UIKit
 
+struct Appearance {
+    let image: UIImage
+    let appearanceStyle: String
+}
+
 class AppearanceViewController: UIViewController {
+    
+    //TODO: Make three buttons with CollectionView
+    //TODO: Save the selection in UserDefaults
+    //TODO: Change the Appearance of the app based on the selection
+    
+    var collectionView: UICollectionView!
+    
+    let appearanceStyles: [Appearance] = [
+        Appearance(image: .cpuIcon, appearanceStyle: "System"),
+        Appearance(image: .sunIcon, appearanceStyle: "Light"),
+        Appearance(image: .moonIcon, appearanceStyle: "Dark")
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
+      
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
