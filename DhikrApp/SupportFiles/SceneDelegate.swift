@@ -23,6 +23,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         appCoordinator.start()
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
+        
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first {
+            switch UserPreferences.getApperanceSelectionIndex() {
+            case 0:
+                window.overrideUserInterfaceStyle = .light
+            case 1:
+                window.overrideUserInterfaceStyle = .dark
+            case 2:
+                window.overrideUserInterfaceStyle = .unspecified
+            default:
+                window.overrideUserInterfaceStyle = .light
+            }
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

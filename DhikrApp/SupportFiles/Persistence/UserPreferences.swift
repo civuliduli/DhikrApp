@@ -14,6 +14,7 @@ class UserPreferences {
         static let arabicFontSizeKey = "arabicFontSizeKey"
         static let transliterationFontSizeKey = "transliterationFontSizeKey"
         static let translatedFontSizeKey = "translatedFontSizeKey"
+        static let selectedAppearanceKey = "selectedAppearanceKey"
     }
     
     class func setArabicFontSize(_ size: Float) {
@@ -38,5 +39,13 @@ class UserPreferences {
     
     class func getTranslationFontSize() -> Float? {
         uds.value(forKey: Constants.translatedFontSizeKey) as? Float
+    }
+    
+    class func setAppearanceSelectionIndex(selectedAppearanceIndex: Int) {
+        uds.set(selectedAppearanceIndex, forKey: Constants.selectedAppearanceKey)
+    }
+    
+    class func getApperanceSelectionIndex() -> Int? {
+        uds.value(forKey: Constants.selectedAppearanceKey) as? Int
     }
 }
